@@ -812,25 +812,53 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="204" parent="3" name="users"/>
-    <column id="205" parent="204" name="id">
+    <table id="204" parent="3" name="persons"/>
+    <table id="205" parent="3" name="users"/>
+    <column id="206" parent="204" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="206" parent="204" name="login">
+    <column id="207" parent="204" name="name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="207" parent="204" name="passw">
+    <column id="208" parent="204" name="phone">
       <Position>3</Position>
       <DataType>varchar(12)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="208" parent="204" name="PRIMARY">
+    <column id="209" parent="204" name="email">
+      <Position>4</Position>
+      <DataType>varchar(12)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="210" parent="204" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="211" parent="205" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="212" parent="205" name="login">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="213" parent="205" name="passw">
+      <Position>3</Position>
+      <DataType>varchar(12)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="214" parent="205" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

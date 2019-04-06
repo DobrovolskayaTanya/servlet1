@@ -1,5 +1,6 @@
 package by.dobrovolskaya;
 
+import by.dobrovolskaya.dao.UserDao;
 import by.dobrovolskaya.list.ListService;
 
 import javax.servlet.ServletException;
@@ -16,10 +17,10 @@ import java.io.PrintWriter;
 
 public class LoginServlet extends HttpServlet {
 
-    public boolean checkLogin (String name, String pass) {
-
-        return (name.equals("admin")&& pass.equals("admin"));
-    }
+//    public boolean checkLogin (String name, String pass) {
+//
+//        return (name.equals("admin")&& pass.equals("admin"));
+//    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
               request.setCharacterEncoding("UTF-8");
@@ -28,8 +29,10 @@ public class LoginServlet extends HttpServlet {
              // .forward(request,response);
              // request.setAttribute("password", request.getParameter("password"));
               String pass  = request.getParameter("password");
-              request.setAttribute("name", request.getParameter("name"));
-              if (checkLogin(name, pass))
+        UserDao  daoUser = new UserDao();
+
+
+              if (daoUser.isValidUser(name, pass))
               {
                   //request.setAttribute("group", ListService.retriveList());
                   //request.getRequestDispatcher("/WEB-INF/View/Welcom.jsp")

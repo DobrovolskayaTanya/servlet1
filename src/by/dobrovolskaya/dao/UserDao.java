@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 public class UserDao {
 
+    private  final  static String SQL_GET_USER ="select login, passw from users where login=? and passw=?";
     private Connection connection;
 
     public UserDao() {
@@ -30,7 +31,7 @@ public class UserDao {
     public boolean isValidUser(final String login, final String password) {
         PreparedStatement ps = null;
         try {
-            ps = connection.prepareStatement("select login,passw from users where   login=? and passw=?");
+            ps = connection.prepareStatement(SQL_GET_USER);
             ps.setString(1, login);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
@@ -40,9 +41,20 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
+    finally {
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
         return false;
     }
-
-
 
 }
